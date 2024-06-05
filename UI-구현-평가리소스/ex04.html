@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <script src="jQuery/jquery-1.12.4.min.js"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      $(document).ready(function () {
+        $('.coffeeInfo').hide();
+        $('.subMenu').hide();
+        $('.wrap').hide();
+        $('#sigBtn').on('click', function () {
+          $('.wrap').show();
+        });
+        $('.mainMenu').on('mouseover', function () {
+          $('.subMenu').stop(true, true).slideDown();
+        });
+        $('.mainMenu').on('mouseleave', function () {
+          $('.subMenu').stop(true, true).slideUp();
+        });
+        $('.wrap > div').on('mouseover', function () {
+          $(this).children('div').stop(true, true).show();
+        });
+        $('.wrap > div').on('mouseleave', function () {
+          $(this).children('div').stop(true, true).hide();
+        });
+
+        $('h1').hover(
+          function () {
+            $(this).css('color', 'black');
+          },
+
+          function () {
+            $(this).css('color', 'white');
+          }
+        );
+      });
+    </script>
+
+    <style>
+      body {
+        width: 1200px;
+        margin: 0px auto;
+      }
+
+      li {
+        list-style-type: none;
+      }
+
+      a {
+        font-size: 1em;
+        color: black;
+        text-decoration: none;
+      }
+
+      .bodyMenu {
+        align-content: center;
+        display: flex;
+      }
+
+      .bodyMenu > li {
+        margin-top: 50px;
+        font-size: 2em;
+        font-weight: bold;
+        margin-right: 120px;
+      }
+
+      .wrap {
+        margin-top: 100px;
+        display: flex;
+      }
+
+      .wrap > div {
+        margin-right: 20px;
+        width: 200px;
+        height: 200px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: absolute;
+        align-content: end;
+      }
+
+      .wrap > div > p {
+        font-size: 0.9em;
+        font-weight: bold;
+        margin-bottom: -1.5em;
+      }
+
+      .coffeeInfo {
+        overflow-y: scroll;
+        width: 200px;
+        height: 200px;
+        background-color: burlywood;
+        color: white;
+        font-size: 0.9em;
+        padding: 2px;
+        padding-left: 3px;
+      }
+
+      #sig1 {
+        background-image: url('MenuImg/cube.jpg');
+      }
+
+      #sig2 {
+        left: 550px;
+        background-image: url('MenuImg/Hot허니ahd.jpg');
+      }
+
+      #sig3 {
+        left: 850px;
+        background-image: url('MenuImg/망고 큐브.jpg');
+      }
+
+      #sig4 {
+        left: 1150px;
+        background-image: url('MenuImg/베리큐브.jpg');
+      }
+
+      #sig5 {
+        top: 600px;
+        background-image: url('MenuImg/아이스허니몽.jpg');
+      }
+
+      #sig6 {
+        top: 600px;
+        left: 550px;
+        background-image: url('MenuImg/핫초코큐브.jpg');
+      }
+
+      #sig7 {
+        top: 600px;
+        left: 850px;
+        background-image: url('MenuImg/허니큐브.jpg');
+      }
+
+      #sig8 {
+        top: 600px;
+        left: 1150px;
+        background-image: url('MenuImg/흑당큐브.jpg');
+      }
+
+      h1 {
+        display: inline-block;
+        font-size: 50px;
+        color: white;
+        -webkit-text-stroke: 1px black;
+        font-weight: bold;
+        padding-left: 10px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="bodyMenuWrap">
+      <nav>
+        <ul class="bodyMenu">
+          <li>
+            <a href="#" id="sigBtn"><h1>Signature</h1></a>
+          </li>
+          <li>
+            <a href="#"><h1>Coffee</h1></a>
+          </li>
+          <li>
+            <a href="#"><h1>Milk beverage</h1></a>
+          </li>
+          <li>
+            <a href="#"><h1>Ice blended</h1></a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <div class="wrap">
+      <div id="sig1">
+        <div class="coffeeInfo">
+          <p>
+            WutheringWaves SET <br />
+            명조:워더링 웨이브 음료세트 입니다 <br /><br />
+            * 영양성분 <br />
+            제공량 480ml, 칼로리 136kcal, 나트륨 22mg, 당류 25g, 포화지방 0g,
+            단백질 0.5g, 카페인 0mg <br />
+            * 알레르기 유발물질<br />
+            복숭아
+          </p>
+        </div>
+        <p>앙큼한 앙코 세트</p>
+      </div>
+      <div id="sig2">
+        <div class="coffeeInfo">
+          <p>
+            WutheringWaves SET <br />
+            명조:워더링 웨이브 음료세트 입니다 <br /><br />
+            * 영양성분 <br />
+            제공량 370ml, 칼로리 273kcal, 나트륨 220mg, 당류 25g, 포화지방 9g,
+            단백질 5g, 카페인 107mg <br />
+            * 알레르기 유발물질<br />
+            우유
+          </p>
+        </div>
+        <p>달콤한 감심 세트</p>
+      </div>
+      <div id="sig3">
+        <div class="coffeeInfo">
+          <p>
+            Strawberry Acai Ade <br />
+            새콤달콤한 에이드에 하트 나타드코코를 넣어 씹히는 재미까지 함께 즐길
+            수 있는 스트로베리 아사이 에이드 <br /><br />
+            * 영양성분 <br />
+            열량 175kcal, 나트륨 24mg, 당류 35g, 단백질 0.4g <br />
+            * 원산지 정보
+          </p>
+        </div>
+        <p>스트로베리 아사이 에이드 <span class="ice">ICE</span></p>
+      </div>
+      <div id="sig4">
+        <div class="coffeeInfo">
+          <p>
+            Shine Mojito Smoothie <br />
+            청량한 스무디에 하트 나타드코코를 넣어 씹히는 재미까지 함께 즐길 수
+            있는 샤인 모히또 스무디<br /><br />
+            * 영양성분<br />
+            열량 220kcal, 나트륨 98mg, 당류 44g, 단백질 0.1g <br />
+            * 원산지 정보
+          </p>
+        </div>
+        <p>샤인 모히또 스무디 <span class="ice">ICE</span></p>
+      </div>
+      <div id="sig5">
+        <div class="coffeeInfo">
+          <p>
+            Cherry Pear Smoothie <br />
+            달콤한 스무디에 하트 나타드코코를 넣어 씹히는 재미까지 함께 즐길 수
+            있는 체리배 스무디<br /><br />
+            * 영양성분<br />
+            열량 192kcal, 나트륨 39mg, 당류 39g, 단백질 0.3g <br />
+            * 원산지 정보
+          </p>
+        </div>
+        <p>체리배 스무디 <span class="ice">ICE</span></p>
+      </div>
+      <div id="sig6">
+        <div class="coffeeInfo">
+          <p>
+            Cold blew Vanila Blended <br />
+            부드럽고 달콤한 바닐라 블렌디드에 향긋한 콜드브루를 더해 시원하게
+            마실 수 있는 콜드브루 바닐라 블렌디드<br /><br />
+            [Size : R] <br />
+            * 영양성분 <br />
+            제공량 410ml, 칼로리 407kcal, 나트륨 162mg, 당류 43g, 포화지방 11g,
+            단백질 7g, 카페인 142mg <br />
+            * 알레르기 유발물질<br />
+            우유, 대두
+          </p>
+        </div>
+        <p>전통팥빙수</p>
+      </div>
+      <div id="sig7">
+        <div class="coffeeInfo">
+          <p>
+            Raspberry Cube Ade <br />
+            상큼한 에이드에 라즈베리 큐브를 더해 새콤한 식감까지 느낄 수 있는
+            라즈베리 큐브 에이드<br /><br />
+            [Size : L] <br />
+            * 영양성분 <br />
+            제공량480ml, 칼로리 136kcal, 나트륨 22mg, 당류 25g, 포화지방 0g,
+            단백질 0.5g, 카페인 0mg <br />
+            * 알레르기 유발물질<br />
+            복숭아
+          </p>
+        </div>
+        <p>망고 봉봉 빙수</p>
+      </div>
+      <div id="sig8">
+        <div class="coffeeInfo">
+          <p>
+            Peach Cube Latte <br />
+            새콤달콤한 복숭아 라떼에 복숭아 큐브를 더해 달콤한 식감까지 느낄 수
+            있는 피치 큐브<br /><br />
+            [Size : R] <br />
+            * 영양성분 <br />
+            제공량 410ml, 칼로리 277kcal, 나트륨 78mg, 당류 35g, 포화지방 5g,
+            단백질 5g, 카페인 0mg <br />
+            * 알레르기 유발물질<br />
+            복숭아, 우유
+          </p>
+        </div>
+        <p>피치 요거트 빙수</p>
+      </div>
+    </div>
+  </body>
+</html>

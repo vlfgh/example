@@ -1,0 +1,285 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="jquery-3.1.1.min.js"></script>
+  <style>
+    h1 {
+      margin-left: 250px;
+    }
+
+    .max-wrap {
+      padding: 0;
+      height: inherit;
+    }
+
+    .max-wrap,
+    nav {
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+      justify-content: space-between;
+      -webkit-align-items: center;
+      -ms-flex-align: center;
+      align-items: center;
+      list-style: none;
+    }
+
+    .logo img {
+      display: block;
+      width: 117px;
+    }
+
+    a {
+      display: block;
+      color: var(--black);
+      font-size: 18px;
+      text-decoration: none;
+    }
+
+    nav a:hover,
+    nav a:focus,
+    nav>ul>li:hover>a,
+    nav>ul>li:focus>a,
+    nav li.current>a,
+    nav>ul>li>a:hover,
+    nav>ul>li>a:focus {
+      color: orangered;
+    }
+
+    nav>ul>li>a>span {
+      position: relative;
+    }
+
+    nav>ul>li>a>span>.ico {
+      position: absolute;
+      top: 4px;
+      right: -8px;
+    }
+
+    /* PC GNB */
+    nav a {
+      position: relative;
+    }
+
+    nav {
+      -webkit-align-self: flex-start;
+      -ms-flex-item-align: start;
+      align-self: flex-start;
+      margin-right: 100px;
+    }
+
+    nav>ul {
+      height: 120px;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+      justify-content: flex-start;
+      list-style: none;
+      /* Add this line to remove bullets */
+    }
+
+    nav>ul>li {
+      position: relative;
+      list-style: none;
+      /* Add this line to remove bullets */
+    }
+
+    nav>ul>li>a {
+      position: relative;
+      height: 120px;
+      line-height: 120px;
+      padding: 0 44px;
+      font-weight: 500;
+    }
+
+    nav>ul>li:last-child>a {
+      padding-right: 0
+    }
+
+    nav>ul>li>a::before,
+    nav>ul>li>a+ul,
+    nav::before {
+      -webkit-transition: all 300ms ease-in-out;
+      -moz-transition: all 300ms ease-in-out;
+      -ms-transition: all 300ms ease-in-out;
+      -o-transition: all 300ms ease-in-out;
+      transition: all 300ms ease-in-out;
+      list-style: none;
+    }
+
+    nav>ul>li>a::before {
+      content: " ";
+      display: block;
+      position: absolute;
+      right: 44px;
+      bottom: 0;
+      left: 44px;
+      height: 2px;
+      background: orangered;
+      -moz-transform: scaleX(0);
+      -webkit-transform: scaleX(0);
+      -o-transform: scaleX(0);
+      -ms-transform: scaleX(0);
+      transform: scaleX(0);
+      transform-origin: top right;
+    }
+
+    nav>ul>li:last-child>a::before {
+      right: 0;
+    }
+
+    nav>ul>li:hover>a::before,
+    nav>ul>li:focus>a::before {
+      -moz-transform: scaleX(1);
+      -webkit-transform: scaleX(1);
+      -o-transform: scaleX(1);
+      -ms-transform: scaleX(1);
+      transform: scaleX(1);
+      transform-origin: top left;
+    }
+
+    nav>ul>li>a+ul {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      width: 120%;
+      opacity: 0;
+      z-index: 10;
+      visibility: hidden;
+    }
+
+    nav>ul>li:last-child>a+ul {
+      left: auto
+    }
+
+    nav>ul>li>a+ul {
+      padding: 40px 0 40px 44px
+    }
+
+    nav>ul>li:last-child>ul {
+      padding-left: 0;
+      text-align: right
+    }
+
+    nav>ul>li>a+ul>li a {
+      padding: 8px 0;
+    }
+
+    nav::before {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      display: block;
+      width: 100%;
+      content: '';
+      height: 0;
+      opacity: 0;
+      z-index: -1;
+      visibility: hidden;
+      background-color: white;
+    }
+
+    nav:hover::before,
+    nav:focus::before {
+      height: 206px;
+      opacity: 1;
+      z-index: 2;
+      visibility: visible;
+    }
+
+    nav:hover ul>li>ul,
+    nav:hover ul>li>ul {
+      opacity: 1;
+      visibility: visible;
+      -webkit-transition-delay: .3s;
+      -o-transition-delay: .3s;
+      transition-delay: .3s;
+    }
+
+    nav:hover ul>li>ul>li>a {
+      color: black;
+    }
+
+    nav:hover ul>li>ul>li:hover>a {
+      color: orangered;
+    }
+
+    nav ul+.btn {
+      margin-left: 52px;
+    }
+
+    nav>ul>li>a>span.stress {
+      display: inline-block;
+      background-color: orangered;
+      color: white;
+      height: 32px;
+      line-height: 32px;
+      padding: 0 18px;
+      border-radius: 14px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="wrap" class="wrap">
+    <header id="header" class="header">
+      <div class="max-wrap">
+        <h1><a href="/"><img src="images/dalkomm.png" class="logo" style="width:120px;" alt="DAL.KOMM"></a></h1>
+
+        <nav id="nav" class="nav">
+          <ul>
+            <li>
+              <a href="#" class="">Dal.Komm</a>
+              <ul>
+                <li><a href="#">브랜드 이야기</a></li>
+                <li><a href="#">App 소개</a></li>
+                <li><a href="#">다날에프엔비 이야기</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#">메뉴</a>
+              <ul>
+                <li><a href="#">메뉴</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#">매장</a>
+              <ul>
+                <li><a href="#">매장찾기</a></li>
+                <li><a href="#">글로벌 달콤</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#"><span>새로운 소식</span></a>
+              <ul>
+                <li><a href="#">뉴스</a></li>
+                <li><a href="#">공지사항</a></li>
+                <li><a href="#">달콤 스토리</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#">창업안내</a>
+              <ul>
+                <li><a href="#">가맹점 개설 안내</a></li>
+                <li><a href="#">창업 상담 신청</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#" target="shop" data-empty-child="true"><span class="stress">SHOP</span></a>
+            </li>
+          </ul>
+        </nav>
+</body>
+
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      //input 태그에 사용자가 작성한 값을 가져올 때에는
+      //input 객체. value로 가져올 수 있다.
+      //*힌트 : 배열
+      var tempTd;
+      var tempText;
+
+      //아동, 청소년, 성인 각 tr 태그에 동일한 class명을 준다.
+      //테이블의 다른 곳에는 어떠한 구분자를 주지 않는다.
+      function confirm() {
+        var input = document.getElementById('choice').value;
+
+        //위의 HTML코드 중 class 이름이 'data'인 태그 객체들
+        var datas = document.getElementsByClassName('data'); //data 3개
+        var check = false;
+
+        if (tempTd != undefined) {
+          tempTd.parentElement.style.background = '#fff';
+          tempTd.innerHTML = tempText;
+        }
+
+        //가져온 태그 개수만큼 반복
+        for (let i = 0; i < datas.length; i++) {
+          //각각의 tr태그(datas[i])의 자식태그들 중 첫번째 자식을 td에 담아준다.
+          //이곳에서 우리가 사용해야 하는 텍스트는 아동, 청소년, 성인이기 때문이다.
+          var td = datas[i].children[0];
+
+          //td.innerHTML이 바로 "아동", "청소년", "성인"이라는 텍스트이다.
+          if (input == td.innerHTML) {
+            tempTd = td;
+            tempText = td.innerHTML;
+
+            //td.parentElement : td의 부모태그 (행)
+            td.parentElement.style.background = '#ef5350';
+            td.innerHTML = '★' + id.innerHTML;
+            check = true;
+            break;
+          }
+        }
+        if (!check) {
+          alert('다시 시도해주세요.');
+          history.go(0);
+        }
+      }
+    </script>
+    <style>
+      table {
+        margin: 0 auto;
+        font-family: 'Nanum Pen Script', bold !important;
+        text-align: center;
+        width: 30%;
+      }
+      thead {
+        background: #fff9c4;
+      }
+    </style>
+  </head>
+  <body>
+    <table border="1">
+      <caption>
+        요금표
+      </caption>
+      <thead>
+        <tr>
+          <th>구분</th>
+          <th>요금</th>
+        </tr>
+      </thead>
+      <tr class="data">
+        <td>아동</td>
+        <td>무료</td>
+      </tr>
+      <tr class="data">
+        <td>청소년</td>
+        <td>2000원</td>
+      </tr>
+      <tr class="data">
+        <td>성인</td>
+        <td>5000원</td>
+      </tr>
+    </table>
+    <fieldset style="text-align: center; width: 30%; margin: 0 auto">
+      <legend>구분</legend>
+      <input type="text" id="choice" />
+      <button onclick="confirm()">확인</button>
+    </fieldset>
+  </body>
+</html>

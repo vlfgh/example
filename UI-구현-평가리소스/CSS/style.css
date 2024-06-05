@@ -1,0 +1,111 @@
+@charset "utf-8";
+
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font: '돋움체', dotum, '굴림체', gulim;
+}
+a {
+  text-decoration: none;
+  color: #333;
+}
+li {
+  list-style: none;
+}
+img {
+  border: none;
+}
+.cf:after {
+  content: '';
+  clear: both;
+  display: block;
+}
+
+/* wrap */
+#wrap {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+/* header */
+#header {
+  width: 100%;
+  height: 100px;
+  text-align: center;
+}
+#header .logo {
+  width: 300px;
+  float: left;
+  padding-top: 45px;
+}
+#header .nav {
+  float: right;
+  margin-top: 40px;
+  width: 600px;
+}
+#header .nav > ul > li {
+  float: left;
+  width: 25%;
+  position: relative;
+}
+#header .nav > ul > li > a {
+  font-weight: bold;
+}
+#header .nav a {
+  font-size: 16px;
+  display: block;
+}
+#header .nav li {
+  height: 40px;
+  line-height: 40px;
+}
+#header .submenu {
+  width: 100%;
+  height: 120px;
+  position: absolute;
+  top: 40px;
+  right: 0;
+  display: none;
+  background: #eee;
+  z-index: 2000;
+}
+#header .nav > ul > li:hover > a {
+  background: #0066ad;
+  color: #fff;
+}
+#header .submenu > li:hover {
+  background: #0066ad;
+}
+#header .submenu > li:hover > a {
+  color: #fff;
+  font-weight: bold;
+}
+/*이미지슬라이드*/
+.imgSlide {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+  background: #eeeeee;
+}
+.imgSlide > a {
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden; /* 이미지슬라이드가 좌우로 움직일때는 반드시 필요 */
+}
+.imgSlide a > img {
+  height: 100%;
+}
+.imgText {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin: -10px -160px;
+  background: rgba(0, 62, 126, 0.4);
+  color: #ffffff;
+  padding: 16px 100px;
+  font-weight: bold;
+}
